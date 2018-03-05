@@ -18,18 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="mp9-mu-48o">
-                                <rect key="frame" x="0.0" y="203.5" width="375" height="260"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="mp9-mu-48o">
+                                <rect key="frame" x="-23" y="187" width="421" height="293"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="c58-sz-Qmt"/>
-                                    <constraint firstAttribute="height" constant="260" id="rtv-ak-Bfy"/>
+                                    <constraint firstAttribute="height" constant="293" id="b0j-3o-2Nd"/>
+                                    <constraint firstAttribute="width" constant="421" id="vum-3r-eKA"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97265181779999998" blue="0.87250161230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mp9-mu-48o" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="RLq-El-clw"/>
-                            <constraint firstItem="mp9-mu-48o" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="rbt-Hw-h00"/>
+                            <constraint firstItem="mp9-mu-48o" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="395-mO-mpq"/>
+                            <constraint firstItem="mp9-mu-48o" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="isd-Jm-SUu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="454" height="340"/>
+        <image name="logo" width="324" height="280"/>
     </resources>
 </document>
