@@ -63,6 +63,8 @@ class ViewControllerCheckList: UITableViewController {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
         
+        performSegue(withIdentifier: "editItem", sender: self)
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -87,6 +89,13 @@ class ViewControllerCheckList: UITableViewController {
         if segue.identifier == "newItem" {
             let newItemVC = segue.destination as! NewItemViewController
             newItemVC.selectedSection = selectedSection
+        } else if segue.identifier == "editItem" {
+            let newItemVC = segue.destination as! NewItemViewController
+            newItemVC.selectedSection = selectedSection
+            if let item = todoItems?[tableView.indexPathForSelectedRow!.row] {
+                newItemVC.itemToEdit = item
+            }
+            
         }
     }
     

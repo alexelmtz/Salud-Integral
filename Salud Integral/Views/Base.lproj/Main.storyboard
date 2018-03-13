@@ -191,6 +191,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="yui-jC-xDa" kind="presentation" identifier="newItem" id="AgR-bh-f2M"/>
+                        <segue destination="yui-jC-xDa" kind="presentation" identifier="editItem" id="gzM-jr-Aam"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOo-lR-4vx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -269,7 +270,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="pvU-TA-BEl">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="5" translatesAutoresizingMaskIntoConstraints="NO" id="pvU-TA-BEl">
                                 <rect key="frame" x="17" y="363" width="341" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -402,4 +403,7 @@
             <point key="canvasLocation" x="198" y="318"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="gzM-jr-Aam"/>
+    </inferredMetricsTieBreakers>
 </document>

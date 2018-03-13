@@ -19,7 +19,8 @@ class NewItemViewController: UIViewController {
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var tfStartDate: UITextField!
     
-    var selectedSection: Section? 
+    var selectedSection: Section?
+    var itemToEdit: Item?
     
     var startDate: Date!
     
@@ -28,6 +29,8 @@ class NewItemViewController: UIViewController {
 
         title = "Tarea Nueva"
         tfStartDate.addTarget(self, action: #selector(chooseDate), for: .touchDown)
+        
+        load()
     }
     
     @objc func chooseDate(textField: UITextField) {
@@ -57,6 +60,28 @@ class NewItemViewController: UIViewController {
         }
     }
     
+    func getFrequencyIndex(frequency: String) -> Int {
+        switch frequency {
+        case "Lun":
+            return 0
+        case "Mar":
+            return 1
+        case "Mie":
+            return 2
+        case "Jue":
+            return 3
+        case "Vie":
+            return 4
+        case "Sab":
+            return 5
+        case "Dom":
+            return 6
+        default:
+            return 7
+        }
+        
+    }
+    
     func getReminder() -> Int {
         switch scReminder.selectedSegmentIndex {
         case 0:
@@ -74,21 +99,52 @@ class NewItemViewController: UIViewController {
         }
     }
     
+    func getReminderIndex(reminder: Int) -> Int {
+        switch reminder {
+        case 5:
+            return 0
+        case 10:
+            return 1
+        case 15:
+            return 2
+        case 30:
+            return 3
+        case 60:
+            return 4
+        default:
+            return 5
+        }
+    }
+    
     // MARK - Model Manipulation Methods
 
     func save() {
         do {
+            let item = itemToEdit ?? Item()
             try realm.write {
-                let item = Item()
                 item.active = true
                 item.name = tfName.text!
                 item.reminder = getReminder()
                 item.frequency = getFrecuency()
                 item.dateCreated = startDate
-                selectedSection?.items.append(item)
+                if itemToEdit == nil {
+                    selectedSection?.items.append(item)
+                }
             }
         } catch {
             print("Error saving context \(error)")
+        }
+    }
+    
+    func load() {
+        if let item = itemToEdit {
+            tfName.text = item.name
+            let format = DateFormatter()
+            format.dateFormat = "dd-MM-YYYY"
+            tfStartDate.text = format.string(from: item.dateCreated!)
+            startDate = item.dateCreated
+            scFrequency.selectedSegmentIndex = getFrequencyIndex(frequency: item.frequency)
+            scReminder.selectedSegmentIndex = getReminderIndex(reminder: item.reminder)
         }
     }
     
