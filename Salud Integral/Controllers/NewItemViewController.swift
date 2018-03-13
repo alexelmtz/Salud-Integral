@@ -50,8 +50,10 @@ class NewItemViewController: UIViewController {
             return "Vie"
         case 5:
             return "Sab"
-        default:
+        case 6:
             return "Dom"
+        default:
+            return ""
         }
     }
     

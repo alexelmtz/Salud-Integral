@@ -282,7 +282,7 @@
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="y2E-1f-eQS">
-                                <rect key="frame" x="17" y="441" width="341" height="29"/>
+                                <rect key="frame" x="5" y="441" width="364" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Lun"/>
@@ -292,6 +292,7 @@
                                     <segment title="Vie"/>
                                     <segment title="Sáb"/>
                                     <segment title="Dom"/>
+                                    <segment title="Nunca"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
