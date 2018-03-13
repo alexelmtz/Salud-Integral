@@ -7,24 +7,24 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "Cell"
 
 class CollectionViewController: UICollectionViewController {
     
-    let sections = ["Alimentación", "Ejercicio", "Medicamentos", "Patrimonio", "Historial", "Contactos", "Configuración"]
-    let sectionImages = [#imageLiteral(resourceName: "apple"), #imageLiteral(resourceName: "exercise"), #imageLiteral(resourceName: "medicine"), #imageLiteral(resourceName: "patrimonio"), #imageLiteral(resourceName: "history"), #imageLiteral(resourceName: "contacts"), #imageLiteral(resourceName: "configuration")]
+    let realm = try! Realm()
+    
+    var sections: Results<Section>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+                
+        loadSections()
         
-        // Do any additional setup after loading the view.
         self.collectionView?.register(UINib(nibName: "CustomSection", bundle: nil), forCellWithReuseIdentifier: "customSection")
         
         let width = (self.collectionView?.frame.size.width)! / 2
@@ -43,41 +43,53 @@ class CollectionViewController: UICollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK - Data Manipulation Methods
+
+    func loadSections() {
+        
+        sections = realm.objects(Section.self)
+        
+//        if sections?.count == 0 {
+//            createDefaultSections()
+//        }
+        
+        collectionView?.reloadData()
+    }
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
         if segue.identifier == "checkListSegue" {
-            let cell = sender as! CustomCollectionViewCell
             let checkListVC = segue.destination as! ViewControllerCheckList
-            checkListVC.checklistTitle = cell.title.text!
+            if let indexPath = collectionView?.indexPathsForSelectedItems?.first {
+                checkListVC.selectedSection = sections?[indexPath.row]
+            }
         }
     }
 
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return sections.count
+        return sections?.count ?? 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customSection", for: indexPath) as! CustomCollectionViewCell
-        cell.title.text = sections[indexPath.row]
-        cell.titleImage.image = sectionImages[indexPath.row]
+        
+        if let section = sections?[indexPath.row] {
+            cell.title.text = section.name
+            cell.titleImage.image = UIImage(named: section.imageName)
+        }
         cell.layer.borderWidth = 1
     
         // It's the last element
-        if indexPath.row == sections.count - 1 {
+        if indexPath.row == (sections?.count)! - 1 {
             cell.frame.size.width = collectionView.frame.size.width
         }
         return cell
@@ -97,34 +109,5 @@ class CollectionViewController: UICollectionViewController {
             performSegue(withIdentifier: "checkListSegue", sender: cell)
         }
     }
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 
 }

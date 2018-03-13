@@ -9,6 +9,8 @@
 import UIKit
 
 class TableViewControllerContacts: UITableViewController {
+    
+//    var contactos: [String: String] = ["Emergencias": "911", "Cruz Roja": "+52(55)5557-5757", "Bomberos": "068 o +52(55)5768-3700", "Policía": "060", "Denuncia": "089", "Protección Civil": "+52(55)5683-2222"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,17 +38,15 @@ class TableViewControllerContacts: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 0
+//        return contactos.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

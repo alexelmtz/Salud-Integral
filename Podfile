@@ -6,5 +6,7 @@ target 'Salud Integral' do
 
   # Pods for Salud Integral
 pod 'RealmSwift'
+pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+pod 'JBDatePicker'
 
 end

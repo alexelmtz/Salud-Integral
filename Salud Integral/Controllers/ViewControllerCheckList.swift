@@ -7,47 +7,52 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewControllerCheckList: UITableViewController {
     
-    var checklistTitle = ""
+    let realm = try! Realm()
     
-    // Delete next var
-    let testArr = ["Test1", "Test2", "Test3"]
+    var newItem = false
+    
+    var todoItems: Results<Item>?
+    
+    var selectedSection: Section? {
+        didSet {
+            loadItems()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-//         self.clearsSelectionOnViewWillAppear = true
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.title = checklistTitle
+        
+        self.title = selectedSection?.name
+        configureTableView()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func configureTableView() {
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 120
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return testArr.count
+        return todoItems?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseID", for: indexPath)
         
-        // Configure the cell...
-        cell.textLabel?.text = testArr[indexPath.row]
+        if let item = todoItems?[indexPath.row] {
+            cell.textLabel?.text = item.name
+            cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 32)
+        }
+        
         return cell
     }
     
@@ -59,52 +64,36 @@ class ViewControllerCheckList: UITableViewController {
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
-
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    // MARK - Model Manipulation Methods
+    
+    func loadItems() {
+        todoItems = selectedSection?.items.sorted(byKeyPath: "dateCreated", ascending: true)
+        
+        tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    //MARK - Add New Item
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "newItem", sender: self)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "newItem" {
+            let newItemVC = segue.destination as! NewItemViewController
+            newItemVC.selectedSection = selectedSection
+        }
     }
-    */
-
+    
+    @IBAction func unwindNewItem(unwindSegue: UIStoryboardSegue) {
+        if newItem {
+            loadItems()
+            newItem = false
+        }
+    }
 }
