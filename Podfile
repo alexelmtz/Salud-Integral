@@ -8,5 +8,6 @@ target 'Salud Integral' do
 pod 'RealmSwift'
 pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 pod 'JBDatePicker'
+pod 'SwipeCellKit'
 
 end

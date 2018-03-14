@@ -50,11 +50,49 @@ class CollectionViewController: UICollectionViewController {
         
         sections = realm.objects(Section.self)
         
-//        if sections?.count == 0 {
-//            createDefaultSections()
-//        }
-        
+        if sections?.count == 0 {
+            createDefaultSections()
+            sections = realm.objects(Section.self)
+        }
         collectionView?.reloadData()
+    }
+    
+    func createDefaultSections() {
+        do {
+            let section1 = Section()
+            section1.name = "Alimentación"
+            section1.imageName = "apple"
+            let section2 = Section()
+            section2.name = "Ejercicio"
+            section2.imageName = "exercise"
+            let section3 = Section()
+            section3.name = "Medicamentos"
+            section3.imageName = "medicine"
+            let section4 = Section()
+            section4.name = "Patrimonio"
+            section4.imageName = "patrimonio"
+            let section5 = Section()
+            section5.name = "Historial"
+            section5.imageName = "history"
+            let section6 = Section()
+            section6.name = "Contactos"
+            section6.imageName = "contacts"
+            let section7 = Section()
+            section7.name = "Configuración"
+            section7.imageName = "configuration"
+            try realm.write {
+                realm.add(section1)
+                realm.add(section2)
+                realm.add(section3)
+                realm.add(section4)
+                realm.add(section5)
+                realm.add(section6)
+                realm.add(section7)
+            }
+            
+        } catch {
+            print("Error saving context \(error)")
+        }
     }
 
     // MARK: - Navigation
