@@ -12,5 +12,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var titleImage: UIImageView!
     @IBOutlet weak var title: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
 
 }

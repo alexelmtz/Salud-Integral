@@ -11,6 +11,9 @@
 		C209B6C120574A35000BB742 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C209B6C020574A35000BB742 /* NewItemViewController.swift */; };
 		C209B6C3205755DA000BB742 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C209B6C2205755DA000BB742 /* CalendarViewController.swift */; };
 		C230ADAA203E2E4A0027B1F8 /* ViewControllerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C230ADA9203E2E4A0027B1F8 /* ViewControllerHistory.swift */; };
+		C23C2CD6205AECCE00E2EF27 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C2CD5205AECCE00E2EF27 /* Contact.swift */; };
+		C23C2CDD205AEDE100E2EF27 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C2CDB205AEDE100E2EF27 /* ContactTableViewCell.swift */; };
+		C23C2CDE205AEDE100E2EF27 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23C2CDC205AEDE100E2EF27 /* ContactTableViewCell.xib */; };
 		C23DBA0B2051A15400FD46CF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DBA0A2051A15400FD46CF /* Item.swift */; };
 		C23DBA0E2051A40600FD46CF /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DBA0D2051A40600FD46CF /* Section.swift */; };
 		C23DBA102051A5B300FD46CF /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DBA0F2051A5B300FD46CF /* History.swift */; };
@@ -32,6 +35,9 @@
 		C209B6C020574A35000BB742 /* NewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		C209B6C2205755DA000BB742 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		C230ADA9203E2E4A0027B1F8 /* ViewControllerHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHistory.swift; sourceTree = "<group>"; };
+		C23C2CD5205AECCE00E2EF27 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		C23C2CDB205AEDE100E2EF27 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		C23C2CDC205AEDE100E2EF27 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		C23DBA0A2051A15400FD46CF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C23DBA0D2051A40600FD46CF /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		C23DBA0F2051A5B300FD46CF /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
@@ -70,11 +76,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C23C2CD9205AED8B00E2EF27 /* Custom Contact */ = {
+			isa = PBXGroup;
+			children = (
+				C23C2CDB205AEDE100E2EF27 /* ContactTableViewCell.swift */,
+				C23C2CDC205AEDE100E2EF27 /* ContactTableViewCell.xib */,
+			);
+			path = "Custom Contact";
+			sourceTree = "<group>";
+		};
+		C23C2CDA205AEDA000E2EF27 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				C23C2CD9205AED8B00E2EF27 /* Custom Contact */,
+				C294927D2049E31700351F5E /* Custom Section */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		C23DBA0C2051A15A00FD46CF /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				C23DBA0A2051A15400FD46CF /* Item.swift */,
 				C23DBA0D2051A40600FD46CF /* Section.swift */,
+				C23DBA0A2051A15400FD46CF /* Item.swift */,
+				C23C2CD5205AECCE00E2EF27 /* Contact.swift */,
 				C23DBA0F2051A5B300FD46CF /* History.swift */,
 			);
 			path = "Data Model";
@@ -101,7 +126,7 @@
 		C25F4C47203DF06500F37A57 /* Salud Integral */ = {
 			isa = PBXGroup;
 			children = (
-				C294927D2049E31700351F5E /* Custom Section */,
+				C23C2CDA205AEDA000E2EF27 /* Custom */,
 				C25F4C48203DF06500F37A57 /* AppDelegate.swift */,
 				C2DDF1962048921900DBF9E4 /* Controllers */,
 				C23DBA0C2051A15A00FD46CF /* Data Model */,
@@ -215,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C23C2CDE205AEDE100E2EF27 /* ContactTableViewCell.xib in Resources */,
 				C25F4C53203DF06500F37A57 /* LaunchScreen.storyboard in Resources */,
 				C294927F2049E33900351F5E /* CustomSection.xib in Resources */,
 				C25F4C50203DF06500F37A57 /* Assets.xcassets in Resources */,
@@ -291,9 +317,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C23C2CD6205AECCE00E2EF27 /* Contact.swift in Sources */,
 				C209B6C3205755DA000BB742 /* CalendarViewController.swift in Sources */,
 				C23DBA0E2051A40600FD46CF /* Section.swift in Sources */,
 				C2DC3662204CDC3D0018212C /* TableViewControllerConfiguration.swift in Sources */,
+				C23C2CDD205AEDE100E2EF27 /* ContactTableViewCell.swift in Sources */,
 				C2DDF1952048920D00DBF9E4 /* CollectionViewController.swift in Sources */,
 				C25F4C49203DF06500F37A57 /* AppDelegate.swift in Sources */,
 				C23DBA102051A5B300FD46CF /* History.swift in Sources */,

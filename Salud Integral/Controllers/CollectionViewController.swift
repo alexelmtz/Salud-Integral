@@ -9,9 +9,9 @@
 import UIKit
 import RealmSwift
 
-private let reuseIdentifier = "Cell"
-
 class CollectionViewController: UICollectionViewController {
+    
+    private let reuseIdentifier = "Cell"
     
     let realm = try! Realm()
     

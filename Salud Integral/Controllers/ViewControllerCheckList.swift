@@ -9,8 +9,9 @@
 import UIKit
 import RealmSwift
 import SwipeCellKit
+import UserNotifications
 
-class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate {
+class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate, UNUserNotificationCenterDelegate {
     
     let realm = try! Realm()
     
@@ -29,11 +30,37 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
         
         self.title = selectedSection?.name
         configureTableView()
+        
+        UNUserNotificationCenter.current().delegate = self
     }
     
     func configureTableView() {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
+    }
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        for item in todoItems! {
+            if item.name == response.actionIdentifier {
+                // Mark item as completed
+                let history = History()
+                history.date = Date()
+                do {
+                    try self.realm.write {
+                        item.datesCompleted.append(history)
+                    }
+                } catch {
+                    print("Error deleting item, \(error)")
+                }
+                tableView.reloadData()
+                break
+            }
+        }
+        
+        
+        
+        completionHandler()
     }
 
     // MARK: - Table view data source

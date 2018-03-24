@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import UserNotifications
 import RealmSwift
 
 class NewItemViewController: UIViewController {
     
     let realm = try! Realm()
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var scFrequency: UISegmentedControl!
-    @IBOutlet weak var scReminder: UISegmentedControl!
     @IBOutlet weak var tfName: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var tfStartDate: UITextField!
@@ -31,10 +32,38 @@ class NewItemViewController: UIViewController {
         tfStartDate.addTarget(self, action: #selector(chooseDate), for: .touchDown)
         
         load()
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (didAllow, error) in
+        }
+        
+        datePicker.timeZone = TimeZone.current
     }
     
     @objc func chooseDate(textField: UITextField) {
         performSegue(withIdentifier: "calendarSegue", sender: self)
+    }
+    
+    // MARK - Notification
+    
+    func notificationConfiguration(title: String) {
+        let answer1 = UNNotificationAction(identifier: title, title: "Completado", options: UNNotificationActionOptions.foreground)
+        
+        let category = UNNotificationCategory(identifier: "myCategory", actions: [answer1], intentIdentifiers: [], options:[])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        
+        // Create notification
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.categoryIdentifier = "myCategory"
+        content.badge = 1
+        
+        // TODO: Make notifications repeat every certain time.
+        
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: getReminderComponents(), repeats: false)
+        let request = UNNotificationRequest(identifier: "Recordatorio", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
     //MARK - Segmented Control Getters
@@ -82,40 +111,39 @@ class NewItemViewController: UIViewController {
         
     }
     
-    func getReminder() -> Int {
-        switch scReminder.selectedSegmentIndex {
-        case 0:
-            return 5
-        case 1:
-            return 10
-        case 2:
-            return 15
-        case 3:
-            return 30
-        case 4:
-            return 60
-        default:
-            return 0
-        }
+    // Creates date based on the day of the item and the time of the reminder.
+    func getReminderDate() -> Date {
+        var components = getReminderComponents()
+        let format = DateFormatter()
+        
+        format.dateFormat = "yyyy"
+        components.year = Int(format.string(from: startDate))
+        format.dateFormat = "MM"
+        components.month = Int(format.string(from: startDate))
+        format.dateFormat = "dd"
+        components.day = Int(format.string(from: startDate))
+        
+        let calendar = Calendar.current
+        
+        return calendar.date(from: components)!
     }
     
-    func getReminderIndex(reminder: Int) -> Int {
-        switch reminder {
-        case 5:
-            return 0
-        case 10:
-            return 1
-        case 15:
-            return 2
-        case 30:
-            return 3
-        case 60:
-            return 4
-        default:
-            return 5
-        }
+    // Return components necessary to schedule notification.
+    func getReminderComponents() -> DateComponents {
+        var components = DateComponents()
+        components.timeZone = TimeZone.current
+        
+        let format = DateFormatter()
+        
+        format.dateFormat = "HH"
+        components.hour = Int(format.string(from: datePicker.date))
+        format.dateFormat = "mm"
+        components.minute = Int(format.string(from: datePicker.date))
+//        components.weekday = scFrequency.selectedSegmentIndex + 2
+        
+        return components
     }
-    
+
     // MARK - Model Manipulation Methods
 
     func save() {
@@ -124,7 +152,7 @@ class NewItemViewController: UIViewController {
             try realm.write {
                 item.active = true
                 item.name = tfName.text!
-                item.reminder = getReminder()
+                item.reminder = getReminderDate()
                 item.frequency = getFrecuency()
                 item.dateCreated = startDate
                 if itemToEdit == nil {
@@ -143,8 +171,8 @@ class NewItemViewController: UIViewController {
             format.dateFormat = "dd-MM-YYYY"
             tfStartDate.text = format.string(from: item.dateCreated!)
             startDate = item.dateCreated
+            datePicker.setDate(item.reminder!, animated: true)
             scFrequency.selectedSegmentIndex = getFrequencyIndex(frequency: item.frequency)
-            scReminder.selectedSegmentIndex = getReminderIndex(reminder: item.reminder)
         }
     }
     
@@ -163,11 +191,13 @@ class NewItemViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if (sender as! UIButton) == confirmButton {
-            if tfName.text == "" || tfStartDate.text == "" || scReminder.selectedSegmentIndex < 0 || scFrequency.selectedSegmentIndex < 0 {
+            if tfName.text == "" || tfStartDate.text == "" || scFrequency.selectedSegmentIndex < 0 {
                 let alerta = UIAlertController(title: "Error", message: "Los campos deben tener datos", preferredStyle: .alert)
                 alerta.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                 present(alerta, animated: true, completion: nil)
                 return false
+            } else {
+                notificationConfiguration(title: tfName.text!)
             }
         }
         return true
