@@ -27,6 +27,12 @@ class CollectionViewController: UICollectionViewController {
         
         self.collectionView?.register(UINib(nibName: "CustomSection", bundle: nil), forCellWithReuseIdentifier: "customSection")
         
+        layoutSettings()
+        
+        self.title = "Inicio"
+    }
+
+    func layoutSettings() {
         let width = (self.collectionView?.frame.size.width)! / 2
         let height = ((self.collectionView?.frame.size.height)! - 100) / 4
         
@@ -35,13 +41,6 @@ class CollectionViewController: UICollectionViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         self.collectionView?.collectionViewLayout = layout
-        
-        self.title = "Inicio"
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //MARK - Data Manipulation Methods

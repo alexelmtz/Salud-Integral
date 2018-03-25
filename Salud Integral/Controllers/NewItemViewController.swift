@@ -9,6 +9,7 @@
 import UIKit
 import UserNotifications
 import RealmSwift
+import ChameleonFramework
 
 class NewItemViewController: UIViewController {
     
@@ -37,6 +38,7 @@ class NewItemViewController: UIViewController {
         }
         
         datePicker.timeZone = TimeZone.current
+        
     }
     
     @objc func chooseDate(textField: UITextField) {
