@@ -17,6 +17,7 @@
 		C23DBA0B2051A15400FD46CF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DBA0A2051A15400FD46CF /* Item.swift */; };
 		C23DBA0E2051A40600FD46CF /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DBA0D2051A40600FD46CF /* Section.swift */; };
 		C23DBA102051A5B300FD46CF /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DBA0F2051A5B300FD46CF /* History.swift */; };
+		C25EC0DE2069D72D005729DE /* HistoryDatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EC0DD2069D72D005729DE /* HistoryDatesTableViewController.swift */; };
 		C25F4C49203DF06500F37A57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F4C48203DF06500F37A57 /* AppDelegate.swift */; };
 		C25F4C4E203DF06500F37A57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C25F4C4C203DF06500F37A57 /* Main.storyboard */; };
 		C25F4C50203DF06500F37A57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C25F4C4F203DF06500F37A57 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		C23DBA0A2051A15400FD46CF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C23DBA0D2051A40600FD46CF /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		C23DBA0F2051A5B300FD46CF /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		C25EC0DD2069D72D005729DE /* HistoryDatesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDatesTableViewController.swift; sourceTree = "<group>"; };
 		C25F4C45203DF06500F37A57 /* Salud Integral.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Salud Integral.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C25F4C48203DF06500F37A57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C25F4C4D203DF06500F37A57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -105,6 +107,25 @@
 			path = "Data Model";
 			sourceTree = "<group>";
 		};
+		C25EC0DC2069D6DF005729DE /* Checklist Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C209B6C2205755DA000BB742 /* CalendarViewController.swift */,
+				C209B6C020574A35000BB742 /* NewItemViewController.swift */,
+				C25F4C5A203DF28300F37A57 /* ViewControllerCheckList.swift */,
+			);
+			path = "Checklist Controllers";
+			sourceTree = "<group>";
+		};
+		C25EC0DF2069D735005729DE /* History Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C230ADA9203E2E4A0027B1F8 /* ViewControllerHistory.swift */,
+				C25EC0DD2069D72D005729DE /* HistoryDatesTableViewController.swift */,
+			);
+			path = "History Controllers";
+			sourceTree = "<group>";
+		};
 		C25F4C3C203DF06500F37A57 = {
 			isa = PBXGroup;
 			children = (
@@ -150,11 +171,9 @@
 		C2DDF1962048921900DBF9E4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C209B6C2205755DA000BB742 /* CalendarViewController.swift */,
-				C209B6C020574A35000BB742 /* NewItemViewController.swift */,
-				C25F4C5A203DF28300F37A57 /* ViewControllerCheckList.swift */,
 				C2DDF1942048920D00DBF9E4 /* CollectionViewController.swift */,
-				C230ADA9203E2E4A0027B1F8 /* ViewControllerHistory.swift */,
+				C25EC0DC2069D6DF005729DE /* Checklist Controllers */,
+				C25EC0DF2069D735005729DE /* History Controllers */,
 				C27E5C34204C7B5F00483DEA /* TableViewControllerContacts.swift */,
 				C2DC3661204CDC3D0018212C /* TableViewControllerConfiguration.swift */,
 			);
@@ -318,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C23C2CD6205AECCE00E2EF27 /* Contact.swift in Sources */,
+				C25EC0DE2069D72D005729DE /* HistoryDatesTableViewController.swift in Sources */,
 				C209B6C3205755DA000BB742 /* CalendarViewController.swift in Sources */,
 				C23DBA0E2051A40600FD46CF /* Section.swift in Sources */,
 				C2DC3662204CDC3D0018212C /* TableViewControllerConfiguration.swift in Sources */,
