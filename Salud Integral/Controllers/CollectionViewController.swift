@@ -20,7 +20,6 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
                 
         loadSections()
@@ -30,7 +29,7 @@ class CollectionViewController: UICollectionViewController {
         layoutSettings()
         
         self.title = "Inicio"
-        print(Realm.Configuration.defaultConfiguration.fileURL)
+//        print(Realm.Configuration.defaultConfiguration.fileURL)
     }
 
     func layoutSettings() {

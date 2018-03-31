@@ -39,6 +39,7 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
         self.tableView.estimatedRowHeight = 120
     }
     
+    // MARK -  Notification Manager
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         for item in todoItems! {
@@ -49,6 +50,10 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
                 do {
                     try self.realm.write {
                         item.datesCompleted.append(history)
+                        if item.frequency == "" {
+                            selectedSection?.inactiveItems.append(item)
+                            selectedSection?.items.remove(at: (selectedSection?.items.index(of: item))!)
+                        }
                     }
                 } catch {
                     print("Error deleting item, \(error)")

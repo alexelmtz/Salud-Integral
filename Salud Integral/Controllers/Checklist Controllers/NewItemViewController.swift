@@ -152,7 +152,6 @@ class NewItemViewController: UIViewController {
         do {
             let item = itemToEdit ?? Item()
             try realm.write {
-                item.active = true
                 item.name = tfName.text!
                 item.reminder = getReminderDate()
                 item.frequency = getFrecuency()

@@ -110,9 +110,9 @@
 		C25EC0DC2069D6DF005729DE /* Checklist Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C209B6C2205755DA000BB742 /* CalendarViewController.swift */,
-				C209B6C020574A35000BB742 /* NewItemViewController.swift */,
 				C25F4C5A203DF28300F37A57 /* ViewControllerCheckList.swift */,
+				C209B6C020574A35000BB742 /* NewItemViewController.swift */,
+				C209B6C2205755DA000BB742 /* CalendarViewController.swift */,
 			);
 			path = "Checklist Controllers";
 			sourceTree = "<group>";

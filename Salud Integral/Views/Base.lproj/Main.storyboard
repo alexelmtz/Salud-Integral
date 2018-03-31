@@ -16,7 +16,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller History-->
+        <!--Title-->
         <scene sceneID="bS6-HO-SaB">
             <objects>
                 <viewController id="o9O-vG-PWV" customClass="ViewControllerHistory" customModule="Salud_Integral" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="jds-f4-Lwq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="jds-f4-Lwq">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jds-f4-Lwq" id="ga1-h9-FCV">
@@ -50,6 +50,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="PFk-k1-s5B"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="9tx-tR-5Em"/>
                     <connections>
                         <outlet property="pickerView" destination="yn0-nY-EnF" id="VJR-wc-XRl"/>
                         <outlet property="tableView" destination="PeG-dB-sgU" id="pkc-kf-SRH"/>
@@ -101,7 +102,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjM-Q3-FYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3031" y="-2"/>
+            <point key="canvasLocation" x="2993" y="-2"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="JYv-jo-Z3X">
@@ -180,9 +181,6 @@
                             <outlet property="delegate" destination="nZW-Ru-tnv" id="LMM-yf-zi0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yUc-UR-aUq">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fUT-6U-9Ks"/>
-                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t88-x4-8d4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

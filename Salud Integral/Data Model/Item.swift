@@ -11,7 +11,7 @@ import RealmSwift
 
 class Item: Object {
     @objc dynamic var name: String = ""
-    @objc dynamic var active: Bool = false
+//    @objc dynamic var active: Bool = false
     @objc dynamic var frequency: String = ""
     @objc dynamic var reminder: Date?
     @objc dynamic var dateCreated: Date?
