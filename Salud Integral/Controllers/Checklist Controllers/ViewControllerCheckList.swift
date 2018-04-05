@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import SwipeCellKit
 import UserNotifications
+import ChameleonFramework
 
 class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate, UNUserNotificationCenterDelegate {
     
@@ -29,14 +30,12 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
         super.viewDidLoad()
         
         self.title = selectedSection?.name
-        configureTableView()
         
         UNUserNotificationCenter.current().delegate = self
     }
     
-    func configureTableView() {
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 120
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70.0
     }
     
     // MARK -  Notification Manager
@@ -45,27 +44,30 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
         for item in todoItems! {
             if item.name == response.actionIdentifier {
                 // Mark item as completed
-                let history = History()
-                history.date = Date()
-                do {
-                    try self.realm.write {
-                        item.datesCompleted.append(history)
-                        if item.frequency == "" {
-                            selectedSection?.inactiveItems.append(item)
-                            selectedSection?.items.remove(at: (selectedSection?.items.index(of: item))!)
-                        }
-                    }
-                } catch {
-                    print("Error deleting item, \(error)")
-                }
+                completeTask(item: item)
+                
                 tableView.reloadData()
                 break
             }
         }
         
-        
-        
         completionHandler()
+    }
+    
+    func completeTask(item: Item) {
+        let history = History()
+        history.date = Date()
+        do {
+            try self.realm.write {
+                item.datesCompleted.append(history)
+                if item.frequency == "" {
+                    selectedSection?.inactiveItems.append(item)
+                    selectedSection?.items.remove(at: (selectedSection?.items.index(of: item))!)
+                }
+            }
+        } catch {
+            print("Error deleting item, \(error)")
+        }
     }
 
     // MARK: - Table view data source
@@ -124,31 +126,46 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
         
         let deleteAction = SwipeAction(style: .destructive, title: "Eliminar") { action, indexPath in
             // handle action by updating model with deletion
-            self.updateModel(at: indexPath)
+            self.updateModel(at: indexPath, action: "Delete")
+        }
+        
+        let completeAction = SwipeAction(style: .default, title: "Completar") { (action, indexPath) in
+            self.updateModel(at: indexPath, action: "Complete")
         }
         
         // customize the action appearance
         deleteAction.image = UIImage(named: "delete-icon")
+        completeAction.image = UIImage(named: "checkmark")
+        completeAction.backgroundColor = FlatGreen()
         
-        return [deleteAction]
+        return [deleteAction, completeAction]
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
         var options = SwipeTableOptions()
-        options.expansionStyle = .destructive
+        options.expansionStyle = .none
+        options.transitionStyle = .border
         return options
     }
     
-    func updateModel(at indexPath: IndexPath) {
-        if let itemToDelete = self.todoItems?[indexPath.row] {
-            do {
-                try self.realm.write {
-                    self.realm.delete(itemToDelete)
+    func updateModel(at indexPath: IndexPath, action: String) {
+        if action == "Delete" {
+            if let itemToDelete = self.todoItems?[indexPath.row] {
+                do {
+                    try self.realm.write {
+                        self.realm.delete(itemToDelete)
+                    }
+                } catch {
+                    print("Error deleting category, \(error)")
                 }
-            } catch {
-                print("Error deleting category, \(error)")
+            }
+        } else {
+            if let itemToComplete = self.todoItems?[indexPath.row] {
+                completeTask(item: itemToComplete)
             }
         }
+        
+        tableView.reloadData()
     }
     
     

@@ -29,7 +29,7 @@ class CollectionViewController: UICollectionViewController {
         layoutSettings()
         
         self.title = "Inicio"
-//        print(Realm.Configuration.defaultConfiguration.fileURL)
+        print(Realm.Configuration.defaultConfiguration.fileURL)
     }
 
     func layoutSettings() {

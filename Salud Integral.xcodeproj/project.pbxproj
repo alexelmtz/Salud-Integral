@@ -10,6 +10,7 @@
 		C060E2885AF671415F09677C /* Pods_Salud_Integral.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C8C8D3658B90ADBFE43C4F /* Pods_Salud_Integral.framework */; };
 		C209B6C120574A35000BB742 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C209B6C020574A35000BB742 /* NewItemViewController.swift */; };
 		C209B6C3205755DA000BB742 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C209B6C2205755DA000BB742 /* CalendarViewController.swift */; };
+		C223ED55207689C700A148C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C223ED54207689C700A148C6 /* Assets.xcassets */; };
 		C230ADAA203E2E4A0027B1F8 /* ViewControllerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C230ADA9203E2E4A0027B1F8 /* ViewControllerHistory.swift */; };
 		C23C2CD6205AECCE00E2EF27 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C2CD5205AECCE00E2EF27 /* Contact.swift */; };
 		C23C2CDD205AEDE100E2EF27 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C2CDB205AEDE100E2EF27 /* ContactTableViewCell.swift */; };
@@ -20,7 +21,6 @@
 		C25EC0DE2069D72D005729DE /* HistoryDatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EC0DD2069D72D005729DE /* HistoryDatesTableViewController.swift */; };
 		C25F4C49203DF06500F37A57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F4C48203DF06500F37A57 /* AppDelegate.swift */; };
 		C25F4C4E203DF06500F37A57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C25F4C4C203DF06500F37A57 /* Main.storyboard */; };
-		C25F4C50203DF06500F37A57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C25F4C4F203DF06500F37A57 /* Assets.xcassets */; };
 		C25F4C53203DF06500F37A57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C25F4C51203DF06500F37A57 /* LaunchScreen.storyboard */; };
 		C25F4C5B203DF28300F37A57 /* ViewControllerCheckList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F4C5A203DF28300F37A57 /* ViewControllerCheckList.swift */; };
 		C27E5C35204C7B5F00483DEA /* TableViewControllerContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E5C34204C7B5F00483DEA /* TableViewControllerContacts.swift */; };
@@ -35,6 +35,7 @@
 		A1E1AC97657D8F1465BA2E53 /* Pods-Salud Integral.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Salud Integral.release.xcconfig"; path = "Pods/Target Support Files/Pods-Salud Integral/Pods-Salud Integral.release.xcconfig"; sourceTree = "<group>"; };
 		C209B6C020574A35000BB742 /* NewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		C209B6C2205755DA000BB742 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		C223ED54207689C700A148C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C230ADA9203E2E4A0027B1F8 /* ViewControllerHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHistory.swift; sourceTree = "<group>"; };
 		C23C2CD5205AECCE00E2EF27 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		C23C2CDB205AEDE100E2EF27 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
@@ -46,7 +47,6 @@
 		C25F4C45203DF06500F37A57 /* Salud Integral.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Salud Integral.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C25F4C48203DF06500F37A57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C25F4C4D203DF06500F37A57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C25F4C4F203DF06500F37A57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C25F4C52203DF06500F37A57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C25F4C54203DF06500F37A57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C25F4C5A203DF28300F37A57 /* ViewControllerCheckList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCheckList.swift; sourceTree = "<group>"; };
@@ -130,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				C25F4C47203DF06500F37A57 /* Salud Integral */,
+				C223ED54207689C700A148C6 /* Assets.xcassets */,
 				C25F4C46203DF06500F37A57 /* Products */,
 				EAC2D8A7E7033FE12A5B7DCE /* Pods */,
 				14DFAA353111A5B728652372 /* Frameworks */,
@@ -152,7 +153,6 @@
 				C2DDF1962048921900DBF9E4 /* Controllers */,
 				C23DBA0C2051A15A00FD46CF /* Data Model */,
 				C2DDF1972048922000DBF9E4 /* Views */,
-				C25F4C4F203DF06500F37A57 /* Assets.xcassets */,
 				C25F4C51203DF06500F37A57 /* LaunchScreen.storyboard */,
 				C25F4C54203DF06500F37A57 /* Info.plist */,
 			);
@@ -209,7 +209,6 @@
 				C25F4C42203DF06500F37A57 /* Frameworks */,
 				C25F4C43203DF06500F37A57 /* Resources */,
 				AC7659862BA4E638293AEC00 /* [CP] Embed Pods Frameworks */,
-				D2F05C8541FFE5B99F0083FC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,7 +226,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Alex Elizondo ";
 				TargetAttributes = {
 					C25F4C44203DF06500F37A57 = {
@@ -262,8 +261,8 @@
 				C23C2CDE205AEDE100E2EF27 /* ContactTableViewCell.xib in Resources */,
 				C25F4C53203DF06500F37A57 /* LaunchScreen.storyboard in Resources */,
 				C294927F2049E33900351F5E /* CustomSection.xib in Resources */,
-				C25F4C50203DF06500F37A57 /* Assets.xcassets in Resources */,
 				C25F4C4E203DF06500F37A57 /* Main.storyboard in Resources */,
+				C223ED55207689C700A148C6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,21 +311,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Salud Integral/Pods-Salud Integral-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2F05C8541FFE5B99F0083FC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Salud Integral/Pods-Salud Integral-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -390,6 +374,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -397,6 +382,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -447,6 +433,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -454,6 +441,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
