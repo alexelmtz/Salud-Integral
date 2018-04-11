@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewControllerConfiguration: UITableViewController {
     
-    let sections = ["Modificar sección", "Reiniciar"]
+    let sections = ["Modificar sección"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +43,10 @@ class TableViewControllerConfiguration: UITableViewController {
         self.tableView.estimatedRowHeight = 120
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if indexPath.row == 0 {
-//           // Do a popover
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+           performSegue(withIdentifier: "segueSectionNames", sender: self)
+        }
+    }
 
 }

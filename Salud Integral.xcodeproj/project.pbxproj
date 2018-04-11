@@ -26,6 +26,7 @@
 		C27E5C35204C7B5F00483DEA /* TableViewControllerContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E5C34204C7B5F00483DEA /* TableViewControllerContacts.swift */; };
 		C294927F2049E33900351F5E /* CustomSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = C294927E2049E33900351F5E /* CustomSection.xib */; };
 		C29492812049E4B300351F5E /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29492802049E4B300351F5E /* CustomCollectionViewCell.swift */; };
+		C2CAE5A4207EABAD0084F2C0 /* SectionNamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAE5A3207EABAD0084F2C0 /* SectionNamesViewController.swift */; };
 		C2DC3662204CDC3D0018212C /* TableViewControllerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC3661204CDC3D0018212C /* TableViewControllerConfiguration.swift */; };
 		C2DDF1952048920D00DBF9E4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DDF1942048920D00DBF9E4 /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		C27E5C34204C7B5F00483DEA /* TableViewControllerContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerContacts.swift; sourceTree = "<group>"; };
 		C294927E2049E33900351F5E /* CustomSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSection.xib; sourceTree = "<group>"; };
 		C29492802049E4B300351F5E /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		C2CAE5A3207EABAD0084F2C0 /* SectionNamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionNamesViewController.swift; sourceTree = "<group>"; };
 		C2DC3661204CDC3D0018212C /* TableViewControllerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerConfiguration.swift; sourceTree = "<group>"; };
 		C2DDF1942048920D00DBF9E4 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		D6872AEB798CC143EF00ADB8 /* Pods-Salud Integral.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Salud Integral.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Salud Integral/Pods-Salud Integral.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +170,15 @@
 			path = "Custom Section";
 			sourceTree = "<group>";
 		};
+		C2CAE5A2207EAB920084F2C0 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				C2DC3661204CDC3D0018212C /* TableViewControllerConfiguration.swift */,
+				C2CAE5A3207EABAD0084F2C0 /* SectionNamesViewController.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		C2DDF1962048921900DBF9E4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,7 +186,7 @@
 				C25EC0DC2069D6DF005729DE /* Checklist Controllers */,
 				C25EC0DF2069D735005729DE /* History Controllers */,
 				C27E5C34204C7B5F00483DEA /* TableViewControllerContacts.swift */,
-				C2DC3661204CDC3D0018212C /* TableViewControllerConfiguration.swift */,
+				C2CAE5A2207EAB920084F2C0 /* Configuration */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -326,6 +337,7 @@
 				C23DBA0E2051A40600FD46CF /* Section.swift in Sources */,
 				C2DC3662204CDC3D0018212C /* TableViewControllerConfiguration.swift in Sources */,
 				C23C2CDD205AEDE100E2EF27 /* ContactTableViewCell.swift in Sources */,
+				C2CAE5A4207EABAD0084F2C0 /* SectionNamesViewController.swift in Sources */,
 				C2DDF1952048920D00DBF9E4 /* CollectionViewController.swift in Sources */,
 				C25F4C49203DF06500F37A57 /* AppDelegate.swift in Sources */,
 				C23DBA102051A5B300FD46CF /* History.swift in Sources */,

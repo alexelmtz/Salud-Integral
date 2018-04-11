@@ -57,17 +57,37 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
     func completeTask(item: Item) {
         let history = History()
         history.date = Date()
+        // Returns an index if the item existed in the past.
+        let indexOfItem = indexForPastItem(item: item)
+        
         do {
             try self.realm.write {
-                item.datesCompleted.append(history)
-                if item.frequency == "" {
-                    selectedSection?.inactiveItems.append(item)
-                    selectedSection?.items.remove(at: (selectedSection?.items.index(of: item))!)
+                if indexOfItem >= 0 {
+                    selectedSection?.inactiveItems[indexOfItem].datesCompleted.append(history)
+                    if item.frequency == "" {
+                        selectedSection?.items.remove(at: (selectedSection?.items.index(of: item))!)
+                    }
+                } else {
+                    item.datesCompleted.append(history)
+                    if item.frequency == "" {
+                        selectedSection?.inactiveItems.append(item)
+                        selectedSection?.items.remove(at: (selectedSection?.items.index(of: item))!)
+                    }
                 }
             }
         } catch {
-            print("Error deleting item, \(error)")
+            print("Error completing item, \(error)")
         }
+    }
+    
+    // If the item was created in the past, it returns its index.
+    func indexForPastItem(item: Item) -> Int {
+        for i in (selectedSection?.inactiveItems)! {
+            if item.name == i.name {
+                return (selectedSection?.inactiveItems.index(of: i))!
+            }
+        }
+        return -1
     }
 
     // MARK: - Table view data source
@@ -94,12 +114,6 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-//            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-//        } else {
-//            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-//        }
-//        
         performSegue(withIdentifier: "editItem", sender: self)
         
         tableView.deselectRow(at: indexPath, animated: true)

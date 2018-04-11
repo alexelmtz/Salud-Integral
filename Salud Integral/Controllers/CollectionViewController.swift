@@ -29,12 +29,17 @@ class CollectionViewController: UICollectionViewController {
         layoutSettings()
         
         self.title = "Inicio"
-        print(Realm.Configuration.defaultConfiguration.fileURL)
+//        print(Realm.Configuration.defaultConfiguration.fileURL)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView?.reloadData()
     }
 
     func layoutSettings() {
+        let navBarHeight = navigationController!.navigationBar.frame.size.height
         let width = (self.collectionView?.frame.size.width)! / 2
-        let height = ((self.collectionView?.frame.size.height)! - 100) / 4
+        let height = ((self.collectionView?.frame.size.height)! - navBarHeight - 20) / 4
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: width, height: height)
@@ -68,7 +73,7 @@ class CollectionViewController: UICollectionViewController {
             section3.name = "Medicamentos"
             section3.imageName = "medicine"
             let section4 = Section()
-            section4.name = "Patrimonio"
+            section4.name = "Finanzas"
             section4.imageName = "patrimonio"
             let section5 = Section()
             section5.name = "Historial"
@@ -129,6 +134,7 @@ class CollectionViewController: UICollectionViewController {
         if indexPath.row == (sections?.count)! - 1 {
             cell.frame.size.width = collectionView.frame.size.width
         }
+        
         return cell
     }
 

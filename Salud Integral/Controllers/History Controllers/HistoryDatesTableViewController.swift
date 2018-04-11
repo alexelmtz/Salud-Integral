@@ -17,6 +17,10 @@ class HistoryDatesTableViewController: UITableViewController {
         
         title = (selectedItem?.name)!
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
 
 
     // MARK: - Table view data source
@@ -36,10 +40,12 @@ class HistoryDatesTableViewController: UITableViewController {
         let format = DateFormatter()
         format.dateFormat = "dd/MM/YYYY"
         
-        cell.textLabel?.text = format.string(from: date)
+        cell.textLabel?.text = "Día: \(format.string(from: date))"
+        cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 32)
         
         format.dateFormat = "HH:mm"
-        cell.detailTextLabel?.text = format.string(from: date)
+        cell.detailTextLabel?.text = "Hora: \(format.string(from: date))"
+        cell.detailTextLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 24)
         
         return cell
     }
