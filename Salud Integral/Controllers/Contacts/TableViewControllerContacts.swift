@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class TableViewControllerContacts: UITableViewController {
     
@@ -25,6 +26,21 @@ class TableViewControllerContacts: UITableViewController {
         tableView.register(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: "customContact")
         
         tableView.rowHeight = 120
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateNavBar()
+    }
+    
+    //MARK - Nav Bar Setup Methods
+    
+    func updateNavBar() {
+        guard let navBar = navigationController?.navigationBar else
+        {fatalError("Navigation Controller does not exist.")}
+        let navBarColor = FlatOrangeDark()
+        navBar.barTintColor = navBarColor
+        navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
+        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
     }
     
     // MARK - Model Manipulation Methods

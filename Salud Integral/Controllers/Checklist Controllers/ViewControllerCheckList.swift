@@ -25,6 +25,7 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
             loadItems()
         }
     }
+    var sectionID: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,34 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
         self.title = selectedSection?.name
         
         UNUserNotificationCenter.current().delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateNavBar()
+    }
+    
+    //MARK - Nav Bar Setup Methods
+    
+    func updateNavBar() {
+        guard let navBar = navigationController?.navigationBar else
+        {fatalError("Navigation Controller does not exist.")}
+        let navBarColor = getColor()
+        navBar.barTintColor = navBarColor
+        navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
+        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
+    }
+    
+    func getColor() -> UIColor {
+        switch sectionID {
+        case 0:
+            return FlatLime()
+        case 1:
+            return FlatSkyBlue().darken(byPercentage: 0.3)!
+        case 2:
+            return FlatRed()
+        default:
+            return UIColor(hexString: "#f4d03f")!
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

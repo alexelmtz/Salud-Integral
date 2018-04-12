@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class TableViewControllerConfiguration: UITableViewController {
     
@@ -17,6 +18,21 @@ class TableViewControllerConfiguration: UITableViewController {
 
         self.title = "Configuración"
         configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateNavBar()
+    }
+    
+    //MARK - Nav Bar Setup Methods
+    
+    func updateNavBar() {
+        guard let navBar = navigationController?.navigationBar else
+        {fatalError("Navigation Controller does not exist.")}
+        let navBarColor = UIColor(hexString: "#f8dc9d")!
+        navBar.barTintColor = navBarColor
+        navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
+        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
     }
 
     // MARK: - Table view data source

@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class ViewControllerHistory: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
@@ -40,6 +41,21 @@ class ViewControllerHistory: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateNavBar()
+    }
+    
+    //MARK - Nav Bar Setup Methods
+    
+    func updateNavBar() {
+        guard let navBar = navigationController?.navigationBar else
+        {fatalError("Navigation Controller does not exist.")}
+        let navBarColor = FlatTealDark().darken(byPercentage: 0.1)!
+        navBar.barTintColor = navBarColor
+        navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
+        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
     }
     
     //MARK - Data Manipulation Methods

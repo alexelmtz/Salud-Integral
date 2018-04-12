@@ -179,13 +179,21 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		C2CAE5A5207ED8BE0084F2C0 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				C27E5C34204C7B5F00483DEA /* TableViewControllerContacts.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
 		C2DDF1962048921900DBF9E4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				C2DDF1942048920D00DBF9E4 /* CollectionViewController.swift */,
 				C25EC0DC2069D6DF005729DE /* Checklist Controllers */,
 				C25EC0DF2069D735005729DE /* History Controllers */,
-				C27E5C34204C7B5F00483DEA /* TableViewControllerContacts.swift */,
+				C2CAE5A5207ED8BE0084F2C0 /* Contacts */,
 				C2CAE5A2207EAB920084F2C0 /* Configuration */,
 			);
 			path = Controllers;

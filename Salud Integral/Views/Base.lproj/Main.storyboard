@@ -177,7 +177,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="lDn-Kz-vfS" kind="show" identifier="segueSectionNames" id="39m-cK-1Cd"/>
+                        <segue destination="lDn-Kz-vfS" kind="show" id="39m-cK-1Cd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t88-x4-8d4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,7 +193,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="tFj-NQ-h4A">
-                                <rect key="frame" x="15" y="146" width="345" height="247"/>
+                                <rect key="frame" x="15" y="136" width="345" height="247"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6E-TK-aqn">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="43"/>
@@ -225,38 +225,29 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lz-ss-pZv">
-                                <rect key="frame" x="138.5" y="413" width="98" height="46"/>
+                                <rect key="frame" x="138" y="403" width="98" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="MAT-8S-gve"/>
                                     <constraint firstAttribute="width" constant="98" id="RqL-TM-8YV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Guardar"/>
-                                <connections>
-                                    <action selector="savePressed:" destination="lDn-Kz-vfS" eventType="touchUpInside" id="pPe-nD-Ex4"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0Lz-ss-pZv" firstAttribute="centerX" secondItem="sjh-Wl-Km8" secondAttribute="centerX" id="4cw-Ib-1ea"/>
-                            <constraint firstItem="tFj-NQ-h4A" firstAttribute="top" secondItem="zJQ-Ml-SDC" secondAttribute="top" constant="30" id="FtZ-aR-4JS"/>
+                            <constraint firstItem="tFj-NQ-h4A" firstAttribute="top" secondItem="zJQ-Ml-SDC" secondAttribute="top" constant="20" id="FtZ-aR-4JS"/>
                             <constraint firstItem="zJQ-Ml-SDC" firstAttribute="trailing" secondItem="tFj-NQ-h4A" secondAttribute="trailing" constant="15" id="L8w-Oh-lAg"/>
                             <constraint firstItem="0Lz-ss-pZv" firstAttribute="top" secondItem="tFj-NQ-h4A" secondAttribute="bottom" constant="20" id="OHm-Tk-TIS"/>
                             <constraint firstItem="tFj-NQ-h4A" firstAttribute="leading" secondItem="zJQ-Ml-SDC" secondAttribute="leading" constant="15" id="g3l-1m-SEP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zJQ-Ml-SDC"/>
                     </view>
-                    <connections>
-                        <outlet property="tfFour" destination="HP5-QZ-YaK" id="r1L-Mc-LUN"/>
-                        <outlet property="tfOne" destination="b6E-TK-aqn" id="wzd-Om-KBl"/>
-                        <outlet property="tfThree" destination="RdJ-bW-kps" id="Mcd-yM-Rf1"/>
-                        <outlet property="tfTwo" destination="WNa-sH-ahN" id="gye-2a-0xz"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oR5-oP-GHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3130" y="1345"/>
+            <point key="canvasLocation" x="3133.5999999999999" y="1362.3688155922041"/>
         </scene>
         <!--Table View Controller Contacts-->
         <scene sceneID="vhA-Al-7Q5">
@@ -595,6 +586,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gzM-jr-Aam"/>
+        <segue reference="AgR-bh-f2M"/>
     </inferredMetricsTieBreakers>
 </document>

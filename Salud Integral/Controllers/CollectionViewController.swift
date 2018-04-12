@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class CollectionViewController: UICollectionViewController {
     
@@ -33,6 +34,8 @@ class CollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        updateNavBar()
+
         collectionView?.reloadData()
     }
 
@@ -46,6 +49,17 @@ class CollectionViewController: UICollectionViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         self.collectionView?.collectionViewLayout = layout
+    }
+    
+    //MARK - Nav Bar Setup Methods
+    
+    func updateNavBar() {
+        guard let navBar = navigationController?.navigationBar else
+        {fatalError("Navigation Controller does not exist.")}
+        let navBarColor = UIColor(hexString: "#f8dc9d")!
+        navBar.barTintColor = navBarColor
+        navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
+        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
     }
     
     //MARK - Data Manipulation Methods
@@ -65,7 +79,7 @@ class CollectionViewController: UICollectionViewController {
         do {
             let section1 = Section()
             section1.name = "Alimentación"
-            section1.imageName = "apple"
+            section1.imageName = "food"
             let section2 = Section()
             section2.name = "Ejercicio"
             section2.imageName = "exercise"
@@ -74,7 +88,7 @@ class CollectionViewController: UICollectionViewController {
             section3.imageName = "medicine"
             let section4 = Section()
             section4.name = "Finanzas"
-            section4.imageName = "patrimonio"
+            section4.imageName = "finance"
             let section5 = Section()
             section5.name = "Historial"
             section5.imageName = "history"
@@ -106,6 +120,7 @@ class CollectionViewController: UICollectionViewController {
             let checkListVC = segue.destination as! ViewControllerCheckList
             if let indexPath = collectionView?.indexPathsForSelectedItems?.first {
                 checkListVC.selectedSection = sections?[indexPath.row]
+                checkListVC.sectionID = indexPath.row
             }
         }
     }
