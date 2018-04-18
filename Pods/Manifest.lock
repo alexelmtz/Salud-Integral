@@ -8,7 +8,7 @@ PODS:
   - Realm/Headers (3.3.2)
   - RealmSwift (3.3.2):
     - Realm (= 3.3.2)
-  - SwipeCellKit (2.1.0)
+  - SwipeCellKit (2.2.0)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
@@ -37,7 +37,7 @@ SPEC CHECKSUMS:
   JBDatePicker: 0e791c8a79c49b0d37decea28ba147515bf5cfca
   Realm: d927fbf66df5532cfafc08afb5f7e53ded37b894
   RealmSwift: 4e903a494e05d866581d69ad6f7e7b879d446baf
-  SwipeCellKit: 80bdb188166484d8a0d813d9fd7748ad33181815
+  SwipeCellKit: 8ae09401e1137566b187980d824310129233c959
 
 PODFILE CHECKSUM: d23ceafccff4f6e6f30e88d46e2d2e8721992fd6
 

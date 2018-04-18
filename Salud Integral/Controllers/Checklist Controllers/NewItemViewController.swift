@@ -39,6 +39,12 @@ class NewItemViewController: UIViewController {
         
         datePicker.timeZone = TimeZone.current
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @objc func chooseDate(textField: UITextField) {

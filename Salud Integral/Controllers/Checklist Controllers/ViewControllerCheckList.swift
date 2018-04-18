@@ -167,12 +167,12 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
         
-        let deleteAction = SwipeAction(style: .destructive, title: "Eliminar") { action, indexPath in
+        let deleteAction = SwipeAction(style: .destructive, title: "Descontinuar") { action, indexPath in
             // handle action by updating model with deletion
             self.updateModel(at: indexPath, action: "Delete")
         }
         
-        let completeAction = SwipeAction(style: .default, title: "Completar") { (action, indexPath) in
+        let completeAction = SwipeAction(style: .default, title: "Realizado") { (action, indexPath) in
             self.updateModel(at: indexPath, action: "Complete")
         }
         

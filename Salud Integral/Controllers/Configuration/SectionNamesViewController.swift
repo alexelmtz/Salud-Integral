@@ -31,7 +31,15 @@ class SectionNamesViewController: UIViewController {
         tfFour.text = sections[3].name
 
         title = "Secciones"
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     @IBAction func savePressed(_ sender: UIButton) {
         do {
             try realm.write {

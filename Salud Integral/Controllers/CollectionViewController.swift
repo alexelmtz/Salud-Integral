@@ -29,7 +29,7 @@ class CollectionViewController: UICollectionViewController {
         
         layoutSettings()
         
-        self.title = "Inicio"
+        title = "Salud Integral"
 //        print(Realm.Configuration.defaultConfiguration.fileURL)
     }
     
