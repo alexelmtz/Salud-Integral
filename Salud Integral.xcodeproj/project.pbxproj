@@ -29,6 +29,7 @@
 		C2CAE5A4207EABAD0084F2C0 /* SectionNamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAE5A3207EABAD0084F2C0 /* SectionNamesViewController.swift */; };
 		C2DC3662204CDC3D0018212C /* TableViewControllerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC3661204CDC3D0018212C /* TableViewControllerConfiguration.swift */; };
 		C2DDF1952048920D00DBF9E4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DDF1942048920D00DBF9E4 /* CollectionViewController.swift */; };
+		C2E88C2120890D2000B38379 /* ViewControllerSuggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E88C2020890D2000B38379 /* ViewControllerSuggestions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		C2CAE5A3207EABAD0084F2C0 /* SectionNamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionNamesViewController.swift; sourceTree = "<group>"; };
 		C2DC3661204CDC3D0018212C /* TableViewControllerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerConfiguration.swift; sourceTree = "<group>"; };
 		C2DDF1942048920D00DBF9E4 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		C2E88C2020890D2000B38379 /* ViewControllerSuggestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSuggestions.swift; sourceTree = "<group>"; };
 		D6872AEB798CC143EF00ADB8 /* Pods-Salud Integral.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Salud Integral.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Salud Integral/Pods-Salud Integral.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +155,7 @@
 				C23C2CDA205AEDA000E2EF27 /* Custom */,
 				C25F4C48203DF06500F37A57 /* AppDelegate.swift */,
 				C2DDF1962048921900DBF9E4 /* Controllers */,
+				C2E88C2220890D2600B38379 /* Suggestions */,
 				C23DBA0C2051A15A00FD46CF /* Data Model */,
 				C2DDF1972048922000DBF9E4 /* Views */,
 				C25F4C51203DF06500F37A57 /* LaunchScreen.storyboard */,
@@ -205,6 +208,14 @@
 				C25F4C4C203DF06500F37A57 /* Main.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C2E88C2220890D2600B38379 /* Suggestions */ = {
+			isa = PBXGroup;
+			children = (
+				C2E88C2020890D2000B38379 /* ViewControllerSuggestions.swift */,
+			);
+			path = Suggestions;
 			sourceTree = "<group>";
 		};
 		EAC2D8A7E7033FE12A5B7DCE /* Pods */ = {
@@ -352,6 +363,7 @@
 				C29492812049E4B300351F5E /* CustomCollectionViewCell.swift in Sources */,
 				C23DBA0B2051A15400FD46CF /* Item.swift in Sources */,
 				C209B6C120574A35000BB742 /* NewItemViewController.swift in Sources */,
+				C2E88C2120890D2000B38379 /* ViewControllerSuggestions.swift in Sources */,
 				C25F4C5B203DF28300F37A57 /* ViewControllerCheckList.swift in Sources */,
 				C27E5C35204C7B5F00483DEA /* TableViewControllerContacts.swift in Sources */,
 				C230ADAA203E2E4A0027B1F8 /* ViewControllerHistory.swift in Sources */,

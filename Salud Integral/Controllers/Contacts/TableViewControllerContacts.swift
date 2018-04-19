@@ -37,7 +37,7 @@ class TableViewControllerContacts: UITableViewController {
     func updateNavBar() {
         guard let navBar = navigationController?.navigationBar else
         {fatalError("Navigation Controller does not exist.")}
-        let navBarColor = FlatOrangeDark()
+        let navBarColor = FlatOrangeDark().lighten(byPercentage: 0.05)!
         navBar.barTintColor = navBarColor
         navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
         navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]

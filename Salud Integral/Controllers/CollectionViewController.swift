@@ -56,7 +56,7 @@ class CollectionViewController: UICollectionViewController {
     func updateNavBar() {
         guard let navBar = navigationController?.navigationBar else
         {fatalError("Navigation Controller does not exist.")}
-        let navBarColor = UIColor(hexString: "#f8dc9d")!
+        let navBarColor = FlatNavyBlue().lighten(byPercentage: 0.05)!
         navBar.barTintColor = navBarColor
         navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
         navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
@@ -96,8 +96,11 @@ class CollectionViewController: UICollectionViewController {
             section6.name = "Contactos"
             section6.imageName = "contacts"
             let section7 = Section()
-            section7.name = "Configuración"
-            section7.imageName = "configuration"
+            section7.name = "Sugerencias"
+            section7.imageName = "suggestion"
+            let section8 = Section()
+            section8.name = "Configuración"
+            section8.imageName = "configuration"
             try realm.write {
                 realm.add(section1)
                 realm.add(section2)
@@ -106,6 +109,7 @@ class CollectionViewController: UICollectionViewController {
                 realm.add(section5)
                 realm.add(section6)
                 realm.add(section7)
+                realm.add(section8)
             }
             
         } catch {
@@ -144,11 +148,6 @@ class CollectionViewController: UICollectionViewController {
             cell.titleImage.image = UIImage(named: section.imageName)
         }
         cell.layer.borderWidth = 1
-    
-        // It's the last element
-        if indexPath.row == (sections?.count)! - 1 {
-            cell.frame.size.width = collectionView.frame.size.width
-        }
         
         return cell
     }
@@ -163,6 +162,8 @@ class CollectionViewController: UICollectionViewController {
             performSegue(withIdentifier: "contactsSegue", sender: cell)
         } else if cell.title.text == "Configuración" {
             performSegue(withIdentifier: "configurationSegue", sender: cell)
+        } else if cell.title.text == "Sugerencias" {
+            performSegue(withIdentifier: "suggestionSegue", sender: cell)
         } else {
             performSegue(withIdentifier: "checkListSegue", sender: cell)
         }
