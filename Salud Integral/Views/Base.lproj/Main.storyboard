@@ -188,6 +188,7 @@
                     <connections>
                         <outlet property="pickerView" destination="boN-In-A56" id="a7m-bd-Hx7"/>
                         <outlet property="tableView" destination="bdr-QH-Te5" id="H5f-a9-AjX"/>
+                        <segue destination="yui-jC-xDa" kind="presentation" identifier="addSuggestionSegue" id="oNy-2X-CCF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcj-YU-fge" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -336,11 +337,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseID" id="yZc-Qf-tiO" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="reuseID" id="yZc-Qf-tiO" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yZc-Qf-tiO" id="ofm-ne-zga">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -470,7 +471,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <state key="normal" title="Cancelar"/>
                                                         <connections>
-                                                            <segue destination="IP0-vr-CyS" kind="unwind" unwindAction="unwindNewItemWithUnwindSegue:" id="QXW-T6-dAC"/>
+                                                            <segue destination="IP0-vr-CyS" kind="unwind" unwindAction="unwindNewItemWithUnwindSegue:" id="eda-PF-X1X"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z6-qh-wBZ">
@@ -478,7 +479,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <state key="normal" title="Confirmar"/>
                                                         <connections>
-                                                            <segue destination="IP0-vr-CyS" kind="unwind" unwindAction="unwindNewItemWithUnwindSegue:" id="ueH-Nx-kO6"/>
+                                                            <segue destination="IP0-vr-CyS" kind="unwind" unwindAction="unwindNewItemWithUnwindSegue:" id="Rax-XC-xje"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

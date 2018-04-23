@@ -218,13 +218,14 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
         if segue.identifier == "newItem" {
             let newItemVC = segue.destination as! NewItemViewController
             newItemVC.selectedSection = selectedSection
+            newItemVC.lastViewControllerName = "ViewControllerCheckList"
         } else if segue.identifier == "editItem" {
             let newItemVC = segue.destination as! NewItemViewController
             newItemVC.selectedSection = selectedSection
             if let item = todoItems?[tableView.indexPathForSelectedRow!.row] {
                 newItemVC.itemToEdit = item
             }
-            
+            newItemVC.lastViewControllerName = "ViewControllerCheckList"
         }
     }
     

@@ -23,6 +23,8 @@ class NewItemViewController: UIViewController {
     
     var selectedSection: Section?
     var itemToEdit: Item?
+    var lastViewControllerName: String? // Could be ViewControllerCheckList or ViewControllerSuggestions.
+    var itemName: String?   // This will have a value if a suggestion will be added.
     
     var startDate: Date!
     
@@ -181,6 +183,9 @@ class NewItemViewController: UIViewController {
             datePicker.setDate(item.reminder!, animated: true)
             scFrequency.selectedSegmentIndex = getFrequencyIndex(frequency: item.frequency)
         }
+        else if itemName != nil {
+            tfName.text = itemName
+        }
     }
     
 
@@ -206,6 +211,13 @@ class NewItemViewController: UIViewController {
             } else {
                 notificationConfiguration(title: tfName.text!)
             }
+        }
+        
+        if lastViewControllerName == "ViewControllerSuggestions" {
+            if (sender as! UIButton) == confirmButton {
+                save()
+            }
+            dismiss(animated: true, completion: nil)
         }
         return true
     }

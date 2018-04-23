@@ -58,8 +58,8 @@ class ViewControllerSuggestions: UIViewController, UIPickerViewDelegate, UIPicke
     //MARK - Defaults
     
     func createSuggestions() {
-        suggestionsSecond = ["Fdsafa", "erewr"]
-        suggestionsFirst = ["Fsa"]
+        suggestionsSecond = ["Ir a caminar", "Ir al gimnasio", "Hacer yoga"]
+        suggestionsFirst = ["Comer avena", "Tomar agua"]
         tableView.reloadData()
     }
     
@@ -90,6 +90,8 @@ class ViewControllerSuggestions: UIViewController, UIPickerViewDelegate, UIPicke
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         showFirst = !showFirst
         
+        selectedSection = sections?[row]
+        
         tableView.reloadData()
     }
     
@@ -116,15 +118,22 @@ class ViewControllerSuggestions: UIViewController, UIPickerViewDelegate, UIPicke
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "addSuggestionSegue", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    */
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addSuggestionSegue" {
+            let newItemVC = segue.destination as! NewItemViewController
+            newItemVC.selectedSection = selectedSection
+            newItemVC.lastViewControllerName = "ViewControllerSuggestions"
+            let selectedRow = tableView.indexPathForSelectedRow?.row ?? 0
+            newItemVC.itemName = showFirst ? suggestionsFirst?[selectedRow] : suggestionsSecond?[selectedRow]
+        }
+    }
 
 }
