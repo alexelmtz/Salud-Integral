@@ -11,11 +11,15 @@ import UIKit
 class HistoryDatesTableViewController: UITableViewController {
     
     var selectedItem: Item?
+    var datesCompleted: [History]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = (selectedItem?.name)!
+        if let dates = selectedItem?.datesCompleted {
+            datesCompleted = Array(dates).reversed()
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -30,12 +34,22 @@ class HistoryDatesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selectedItem?.datesCompleted.count ?? 0
+        let size = datesCompleted?.count ?? 0
+        return size > 0 ? size : 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        guard let date = selectedItem?.datesCompleted[indexPath.row].date else { fatalError("Item History not found")}
+        
+        if datesCompleted?.count == 0 {
+            cell.textLabel?.text = "No se ha realizado"
+            cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 32)
+            cell.detailTextLabel?.text = ""
+
+            return cell
+        }
+        
+        guard let date = datesCompleted?[indexPath.row].date else { fatalError("Item History not found")}
         
         let format = DateFormatter()
         format.dateFormat = "dd/MM/YYYY"
@@ -43,7 +57,7 @@ class HistoryDatesTableViewController: UITableViewController {
         cell.textLabel?.text = "Día: \(format.string(from: date))"
         cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 32)
         
-        format.dateFormat = "HH:mm"
+        format.dateFormat = "hh:mm a"
         cell.detailTextLabel?.text = "Hora: \(format.string(from: date))"
         cell.detailTextLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 24)
         

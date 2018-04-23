@@ -55,15 +55,15 @@ class NewItemViewController: UIViewController {
     
     // MARK - Notification
     
-    func notificationConfiguration(title: String) {
-        let answer1 = UNNotificationAction(identifier: title, title: "Completado", options: UNNotificationActionOptions.foreground)
+    func notificationConfiguration(item: Item) {
+        let answer1 = UNNotificationAction(identifier: item.id, title: "Completado", options: UNNotificationActionOptions.foreground)
         
         let category = UNNotificationCategory(identifier: "myCategory", actions: [answer1], intentIdentifiers: [], options:[])
         UNUserNotificationCenter.current().setNotificationCategories([category])
         
         // Create notification
         let content = UNMutableNotificationContent()
-        content.title = title
+        content.title = item.name
         content.categoryIdentifier = "myCategory"
         content.badge = 1
         
@@ -71,7 +71,7 @@ class NewItemViewController: UIViewController {
         
 //        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let trigger = UNCalendarNotificationTrigger(dateMatching: getReminderComponents(), repeats: false)
-        let request = UNNotificationRequest(identifier: "Recordatorio", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: item.id, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
@@ -168,6 +168,7 @@ class NewItemViewController: UIViewController {
                     selectedSection?.items.append(item)
                 }
             }
+            notificationConfiguration(item: item)
         } catch {
             print("Error saving context \(error)")
         }
@@ -208,8 +209,6 @@ class NewItemViewController: UIViewController {
                 alerta.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                 present(alerta, animated: true, completion: nil)
                 return false
-            } else {
-                notificationConfiguration(title: tfName.text!)
             }
         }
         

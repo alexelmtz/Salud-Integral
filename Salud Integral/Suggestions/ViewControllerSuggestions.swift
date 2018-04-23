@@ -52,7 +52,9 @@ class ViewControllerSuggestions: UIViewController, UIPickerViewDelegate, UIPicke
         let navBarColor = FlatMintDark().darken(byPercentage: 0.2)!
         navBar.barTintColor = navBarColor
         navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
-        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
+        let titleAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
+        navBar.largeTitleTextAttributes = titleAttributes
+        navBar.titleTextAttributes = titleAttributes
     }
     
     //MARK - Defaults

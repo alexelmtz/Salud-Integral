@@ -47,7 +47,9 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
         let navBarColor = getColor()
         navBar.barTintColor = navBarColor
         navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
-        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
+        let titleAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
+        navBar.largeTitleTextAttributes = titleAttributes
+        navBar.titleTextAttributes = titleAttributes
     }
     
     func getColor() -> UIColor {
@@ -71,7 +73,7 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         for item in todoItems! {
-            if item.name == response.actionIdentifier {
+            if item.id == response.actionIdentifier {
                 // Mark item as completed
                 completeTask(item: item)
                 
@@ -81,6 +83,10 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
         }
         
         completionHandler()
+    }
+    
+    func cancelNotification(item: Item) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [item.id])
     }
     
     func completeTask(item: Item) {
@@ -194,6 +200,7 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
     func updateModel(at indexPath: IndexPath, action: String) {
         if action == "Delete" {
             if let itemToDelete = self.todoItems?[indexPath.row] {
+                cancelNotification(item: itemToDelete)
                 do {
                     try self.realm.write {
                         self.realm.delete(itemToDelete)
@@ -204,6 +211,7 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
             }
         } else {
             if let itemToComplete = self.todoItems?[indexPath.row] {
+                cancelNotification(item: itemToComplete)
                 completeTask(item: itemToComplete)
             }
         }

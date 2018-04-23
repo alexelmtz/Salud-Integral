@@ -55,7 +55,9 @@ class ViewControllerHistory: UIViewController, UIPickerViewDelegate, UIPickerVie
         let navBarColor = FlatSkyBlueDark()
         navBar.barTintColor = navBarColor
         navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
-        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
+        let titleAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
+        navBar.largeTitleTextAttributes = titleAttributes
+        navBar.titleTextAttributes = titleAttributes
     }
     
     //MARK - Data Manipulation Methods
@@ -121,8 +123,6 @@ class ViewControllerHistory: UIViewController, UIPickerViewDelegate, UIPickerVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    
 
     // MARK: - Navigation
 
@@ -130,11 +130,26 @@ class ViewControllerHistory: UIViewController, UIPickerViewDelegate, UIPickerVie
         if segue.identifier == "HistorySegue" {
             let historyDatesVC = segue.destination as! HistoryDatesTableViewController
             if showActive {
-                historyDatesVC.selectedItem = selectedSection?.items[(tableView.indexPathForSelectedRow?.row)!]
+                var item = selectedSection?.items[(tableView.indexPathForSelectedRow?.row)!]
+                let index = indexForPastItem(item: item!)
+                if index >= 0 {
+                    item = selectedSection?.inactiveItems[index]
+                }
+                historyDatesVC.selectedItem = item
             } else {
                 historyDatesVC.selectedItem = selectedSection?.inactiveItems[(tableView.indexPathForSelectedRow?.row)!]
             }
         }
+    }
+    
+    // If the item was created in the past, it returns its index.
+    func indexForPastItem(item: Item) -> Int {
+        for i in (selectedSection?.inactiveItems)! {
+            if item.name == i.name {
+                return (selectedSection?.inactiveItems.index(of: i))!
+            }
+        }
+        return -1
     }
 
 }

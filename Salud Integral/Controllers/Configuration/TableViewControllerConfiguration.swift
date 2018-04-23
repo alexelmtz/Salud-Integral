@@ -32,7 +32,9 @@ class TableViewControllerConfiguration: UITableViewController {
         let navBarColor = UIColor(hexString: "#f8dc9d")!
         navBar.barTintColor = navBarColor
         navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
-        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
+        let titleAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
+        navBar.largeTitleTextAttributes = titleAttributes
+        navBar.titleTextAttributes = titleAttributes
     }
 
     // MARK: - Table view data source

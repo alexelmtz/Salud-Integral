@@ -30,7 +30,7 @@ class CollectionViewController: UICollectionViewController {
         layoutSettings()
         
         title = "Salud Integral"
-//        print(Realm.Configuration.defaultConfiguration.fileURL)
+        print(Realm.Configuration.defaultConfiguration.fileURL)
     }
     
     override func viewWillAppear(_ animated: Bool) {
