@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class HistoryDatesTableViewController: UITableViewController {
     
@@ -43,7 +44,8 @@ class HistoryDatesTableViewController: UITableViewController {
         
         if datesCompleted?.count == 0 {
             cell.textLabel?.text = "No se ha realizado"
-            cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 32)
+            cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 32)
+            cell.textLabel?.textColor = FlatNavyBlue()
             cell.detailTextLabel?.text = ""
 
             return cell
@@ -55,12 +57,12 @@ class HistoryDatesTableViewController: UITableViewController {
         format.dateFormat = "dd/MM/YYYY"
         
         cell.textLabel?.text = "Día: \(format.string(from: date))"
-        cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 32)
-        
+        cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 32)
+        cell.textLabel?.textColor = FlatNavyBlue()
         format.dateFormat = "hh:mm a"
         cell.detailTextLabel?.text = "Hora: \(format.string(from: date))"
-        cell.detailTextLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 24)
-        
+        cell.detailTextLabel?.font = UIFont(name: "HelveticaNeue", size: 24)
+        cell.detailTextLabel?.textColor = FlatNavyBlue()
         return cell
     }
 }

@@ -51,7 +51,8 @@ class TableViewControllerConfiguration: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ConfigCell", for: indexPath)
 
         cell.textLabel?.text = sections[indexPath.row]
-        cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 32)
+        cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 32)
+        cell.textLabel?.textColor = FlatNavyBlue()
         
         return cell
     }

@@ -68,7 +68,7 @@ class TableViewControllerContacts: UITableViewController {
             contact2.phoneNumber = "+52(55)5557-5757"
             let contact3 = Contact()
             contact3.name = "Bomberos"
-            contact3.phoneNumber = "068 o +52(55)5768-3700"
+            contact3.phoneNumber = "068"
             let contact4 = Contact()
             contact4.name = "Policía"
             contact4.phoneNumber = "060"
@@ -107,7 +107,10 @@ class TableViewControllerContacts: UITableViewController {
         
         if let contact = contactList?[indexPath.row] {
             cell.title.text = contact.name
+            cell.title.textColor = FlatNavyBlueDark()
+            
             cell.phoneNumber.text = contact.phoneNumber
+            cell.phoneNumber.textColor = FlatNavyBlue()
         }
 
         return cell

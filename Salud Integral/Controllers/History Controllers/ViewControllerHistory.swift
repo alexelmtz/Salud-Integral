@@ -115,8 +115,9 @@ class ViewControllerHistory: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         cell.textLabel?.text = showActive ? selectedSection?.items[indexPath.row].name : selectedSection?.inactiveItems[indexPath.row].name
         
-        cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 32)
-        
+        cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 32)
+        cell.textLabel?.textColor = FlatNavyBlue()
+
         return cell
     }
     

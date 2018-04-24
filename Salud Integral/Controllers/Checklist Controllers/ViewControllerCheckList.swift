@@ -142,7 +142,8 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
         
         if let item = todoItems?[indexPath.row] {
             cell.textLabel?.text = item.name
-            cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 32)
+            cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 32)
+            cell.textLabel?.textColor = FlatNavyBlue()
         }
         
         return cell
@@ -157,7 +158,7 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
     // MARK - Model Manipulation Methods
     
     func loadItems() {
-        todoItems = selectedSection?.items.sorted(byKeyPath: "dateCreated", ascending: true)
+        todoItems = selectedSection?.items.sorted(byKeyPath: "reminder", ascending: true)
         
         tableView.reloadData()
     }

@@ -60,8 +60,8 @@ class ViewControllerSuggestions: UIViewController, UIPickerViewDelegate, UIPicke
     //MARK - Defaults
     
     func createSuggestions() {
-        suggestionsSecond = ["Ir a caminar", "Ir al gimnasio", "Hacer yoga"]
-        suggestionsFirst = ["Comer avena", "Tomar agua"]
+        suggestionsSecond = ["Salir a caminar", "Ir al gimnasio", "Hacer yoga", "Ir a una clase de baile", "Nadar"]
+        suggestionsFirst = ["Comer avena", "Tomar agua", "Tomar vitamina C"]
         tableView.reloadData()
     }
     
@@ -112,7 +112,8 @@ class ViewControllerSuggestions: UIViewController, UIPickerViewDelegate, UIPicke
         
         cell.textLabel?.text = showFirst ? suggestionsFirst?[indexPath.row] : suggestionsSecond?[indexPath.row]
         
-        cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 32)
+        cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 32)
+        cell.textLabel?.textColor = FlatNavyBlue()
         
         return cell
     }
