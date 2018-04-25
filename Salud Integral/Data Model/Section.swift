@@ -12,6 +12,6 @@ import RealmSwift
 class Section: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var imageName: String = ""
-    let items = List<Item>()
-    let inactiveItems = List<Item>()
+    var items = List<Item>()
+    var inactiveItems = List<Item>()
 }

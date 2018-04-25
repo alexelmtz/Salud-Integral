@@ -101,18 +101,26 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
                     selectedSection?.inactiveItems[indexOfItem].datesCompleted.append(history)
                     if item.frequency == "" {
                         selectedSection?.items.remove(at: (selectedSection?.items.index(of: item))!)
+                    } else {
+                        // Change reminder for next week
+                        item.reminder = Date(timeInterval: 24*60*60*7, since: item.reminder!)
                     }
                 } else {
                     item.datesCompleted.append(history)
                     if item.frequency == "" {
                         selectedSection?.inactiveItems.append(item)
                         selectedSection?.items.remove(at: (selectedSection?.items.index(of: item))!)
+                    } else {
+                        // Change reminder for next week
+                        item.reminder = Date(timeInterval: 24*60*60*7, since: item.reminder!)
                     }
                 }
             }
         } catch {
             print("Error completing item, \(error)")
         }
+        
+        tableView.reloadData()
     }
     
     // If the item was created in the past, it returns its index.
@@ -202,9 +210,16 @@ class ViewControllerCheckList: UITableViewController, SwipeTableViewCellDelegate
         if action == "Delete" {
             if let itemToDelete = self.todoItems?[indexPath.row] {
                 cancelNotification(item: itemToDelete)
+                // Returns an index if the item existed in the past.
+                let indexOfItem = indexForPastItem(item: itemToDelete)
                 do {
                     try self.realm.write {
-                        self.realm.delete(itemToDelete)
+                        if indexOfItem < 0 && itemToDelete.datesCompleted.count > 0 {
+                            selectedSection?.inactiveItems.append(itemToDelete)
+                            selectedSection?.items.remove(at: (selectedSection?.items.index(of: itemToDelete))!)
+                        } else {
+                            self.realm.delete(itemToDelete)
+                        }
                     }
                 } catch {
                     print("Error deleting category, \(error)")

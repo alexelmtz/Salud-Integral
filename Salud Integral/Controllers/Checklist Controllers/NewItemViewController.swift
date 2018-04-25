@@ -56,6 +56,9 @@ class NewItemViewController: UIViewController {
     // MARK - Notification
     
     func notificationConfiguration(item: Item) {
+        if itemToEdit != nil {
+            cancelNotification(item: itemToEdit!)
+        }
         let answer1 = UNNotificationAction(identifier: item.id, title: "Completado", options: UNNotificationActionOptions.foreground)
         
         let category = UNNotificationCategory(identifier: "myCategory", actions: [answer1], intentIdentifiers: [], options:[])
@@ -67,13 +70,23 @@ class NewItemViewController: UIViewController {
         content.categoryIdentifier = "myCategory"
         content.badge = 1
         
-        // TODO: Make notifications repeat every certain time.
-        
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: getReminderComponents(), repeats: false)
-        let request = UNNotificationRequest(identifier: item.id, content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        if scFrequency.selectedSegmentIndex == 7 {
+            let trigger = UNCalendarNotificationTrigger(dateMatching: getReminderComponents(), repeats: false)
+            
+            let request = UNNotificationRequest(identifier: item.id, content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        } else {
+            let trigger = UNCalendarNotificationTrigger(dateMatching: getReminderComponents(), repeats: true)
+            
+            let request = UNNotificationRequest(identifier: item.id, content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+    }
+    
+    func cancelNotification(item: Item) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [item.id])
     }
     
     //MARK - Segmented Control Getters
@@ -149,7 +162,9 @@ class NewItemViewController: UIViewController {
         components.hour = Int(format.string(from: datePicker.date))
         format.dateFormat = "mm"
         components.minute = Int(format.string(from: datePicker.date))
-//        components.weekday = scFrequency.selectedSegmentIndex + 2
+        
+        let weekday = scFrequency.selectedSegmentIndex + 2
+        components.weekday = weekday > 7 ? 1 : weekday
         
         return components
     }

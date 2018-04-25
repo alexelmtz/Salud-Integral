@@ -84,7 +84,7 @@ class CollectionViewController: UICollectionViewController {
             section2.name = "Ejercicio"
             section2.imageName = "exercise"
             let section3 = Section()
-            section3.name = "Medicamentos"
+            section3.name = "Medicamento"
             section3.imageName = "medicine"
             let section4 = Section()
             section4.name = "Finanzas"
@@ -99,7 +99,7 @@ class CollectionViewController: UICollectionViewController {
             section7.name = "Sugerencias"
             section7.imageName = "suggestion"
             let section8 = Section()
-            section8.name = "Configuración"
+            section8.name = "Ajustes"
             section8.imageName = "configuration"
             try realm.write {
                 realm.add(section1)
@@ -160,7 +160,7 @@ class CollectionViewController: UICollectionViewController {
             performSegue(withIdentifier: "historySegue", sender: cell)
         } else if cell.title.text == "Contactos" {
             performSegue(withIdentifier: "contactsSegue", sender: cell)
-        } else if cell.title.text == "Configuración" {
+        } else if cell.title.text == "Ajustes" {
             performSegue(withIdentifier: "configurationSegue", sender: cell)
         } else if cell.title.text == "Sugerencias" {
             performSegue(withIdentifier: "suggestionSegue", sender: cell)

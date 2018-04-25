@@ -15,7 +15,7 @@ class Item: Object {
     @objc dynamic var frequency: String = ""
     @objc dynamic var reminder: Date?
     @objc dynamic var dateCreated: Date?
-    let datesCompleted = List<History>()
+    var datesCompleted = List<History>()
     var parentCategory = LinkingObjects(fromType: Section.self, property: "items")
     
     override static func primaryKey() -> String? {
