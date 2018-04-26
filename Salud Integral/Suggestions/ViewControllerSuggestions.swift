@@ -90,7 +90,11 @@ class ViewControllerSuggestions: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        showFirst = !showFirst
+        if row == 0 {
+            showFirst = true
+        } else {
+            showFirst = false
+        }
         
         selectedSection = sections?[row]
         
