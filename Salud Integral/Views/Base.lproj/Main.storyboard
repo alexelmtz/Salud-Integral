@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -107,7 +106,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjM-Q3-FYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2993" y="-2"/>
+            <point key="canvasLocation" x="3031" y="23"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="JYv-jo-Z3X">
@@ -240,6 +239,7 @@
                     </tableView>
                     <connections>
                         <segue destination="lDn-Kz-vfS" kind="show" identifier="segueSectionNames" id="39m-cK-1Cd"/>
+                        <segue destination="ecJ-O8-8ii" kind="show" identifier="creditsSegue" id="frL-lJ-Bl0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t88-x4-8d4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -287,7 +287,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lz-ss-pZv">
-                                <rect key="frame" x="138" y="403" width="98" height="46"/>
+                                <rect key="frame" x="138.5" y="403" width="98" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="MAT-8S-gve"/>
                                     <constraint firstAttribute="width" constant="98" id="RqL-TM-8YV"/>
@@ -319,6 +319,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oR5-oP-GHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2993" y="2019"/>
+        </scene>
+        <!--Credits View Controller-->
+        <scene sceneID="Hw6-Xz-25n">
+            <objects>
+                <viewController id="ecJ-O8-8ii" customClass="CreditsViewController" customModule="Salud_Integral" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cih-TP-ghE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOw-tR-khO">
+                                <rect key="frame" x="10" y="116" width="355" height="546"/>
+                                <mutableString key="text">Salud Integral ha sido desarrollado por un estudiante del Tecnológico de Monterrey durante el semestre Enero Mayo de 2018, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorado por la maestra Yolanda Martínez Treviño.
+
+Desarrollador:
+Alejandro Elizondo Martínez Sotomayor
+alexelmtz@outlook.com
+
+Salud Integral se distribuye como está de manera gratuita y se prohíbe su
+distribución y uso con fines de lucro.
+
+Código: github.com/alexelmtz/Salud-Integral
+Imágenes: iconarchive.com, pvhc.net</mutableString>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="72"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rOw-tR-khO" firstAttribute="top" secondItem="DgQ-Ya-CVM" secondAttribute="top" id="0tL-fM-Kn4"/>
+                            <constraint firstAttribute="bottom" secondItem="rOw-tR-khO" secondAttribute="bottom" constant="5" id="9pS-3J-mEz"/>
+                            <constraint firstItem="rOw-tR-khO" firstAttribute="leading" secondItem="DgQ-Ya-CVM" secondAttribute="leading" constant="10" id="XNr-hk-BZE"/>
+                            <constraint firstItem="DgQ-Ya-CVM" firstAttribute="trailing" secondItem="rOw-tR-khO" secondAttribute="trailing" constant="10" id="gRb-xy-Lm6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DgQ-Ya-CVM"/>
+                    </view>
+                    <connections>
+                        <outlet property="lbCredits" destination="rOw-tR-khO" id="P5D-Ks-I5B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="74d-3r-Rt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2993" y="2774"/>
         </scene>
         <!--Table View Controller Contacts-->
         <scene sceneID="vhA-Al-7Q5">
@@ -464,7 +507,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="TJh-CE-L7A">
-                                                <rect key="frame" x="15" y="43" width="345" height="173"/>
+                                                <rect key="frame" x="15" y="43.5" width="345" height="172.5"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="543601541.50093305">
                                                     <!--2018-03-24 16:25:41 +0000-->
                                                 </date>

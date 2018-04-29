@@ -11,7 +11,7 @@ import ChameleonFramework
 
 class TableViewControllerConfiguration: UITableViewController {
     
-    let sections = ["Modificar sección"]
+    let sections = ["Modificar sección", "Créditos"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +66,8 @@ class TableViewControllerConfiguration: UITableViewController {
         if indexPath.row == 0 {
             tableView.deselectRow(at: indexPath, animated: true)
            performSegue(withIdentifier: "segueSectionNames", sender: self)
+        } else {
+            performSegue(withIdentifier: "creditsSegue", sender: self)
         }
     }
 

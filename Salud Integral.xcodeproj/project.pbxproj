@@ -24,6 +24,7 @@
 		C25F4C53203DF06500F37A57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C25F4C51203DF06500F37A57 /* LaunchScreen.storyboard */; };
 		C25F4C5B203DF28300F37A57 /* ViewControllerCheckList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F4C5A203DF28300F37A57 /* ViewControllerCheckList.swift */; };
 		C27E5C35204C7B5F00483DEA /* TableViewControllerContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E5C34204C7B5F00483DEA /* TableViewControllerContacts.swift */; };
+		C28254C2209679E700B46A41 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28254C1209679E700B46A41 /* CreditsViewController.swift */; };
 		C294927F2049E33900351F5E /* CustomSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = C294927E2049E33900351F5E /* CustomSection.xib */; };
 		C29492812049E4B300351F5E /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29492802049E4B300351F5E /* CustomCollectionViewCell.swift */; };
 		C2CAE5A4207EABAD0084F2C0 /* SectionNamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAE5A3207EABAD0084F2C0 /* SectionNamesViewController.swift */; };
@@ -53,6 +54,7 @@
 		C25F4C54203DF06500F37A57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C25F4C5A203DF28300F37A57 /* ViewControllerCheckList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCheckList.swift; sourceTree = "<group>"; };
 		C27E5C34204C7B5F00483DEA /* TableViewControllerContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerContacts.swift; sourceTree = "<group>"; };
+		C28254C1209679E700B46A41 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		C294927E2049E33900351F5E /* CustomSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSection.xib; sourceTree = "<group>"; };
 		C29492802049E4B300351F5E /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2CAE5A3207EABAD0084F2C0 /* SectionNamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionNamesViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				C2DC3661204CDC3D0018212C /* TableViewControllerConfiguration.swift */,
 				C2CAE5A3207EABAD0084F2C0 /* SectionNamesViewController.swift */,
+				C28254C1209679E700B46A41 /* CreditsViewController.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				C29492812049E4B300351F5E /* CustomCollectionViewCell.swift in Sources */,
 				C23DBA0B2051A15400FD46CF /* Item.swift in Sources */,
 				C209B6C120574A35000BB742 /* NewItemViewController.swift in Sources */,
+				C28254C2209679E700B46A41 /* CreditsViewController.swift in Sources */,
 				C2E88C2120890D2000B38379 /* ViewControllerSuggestions.swift in Sources */,
 				C25F4C5B203DF28300F37A57 /* ViewControllerCheckList.swift in Sources */,
 				C27E5C35204C7B5F00483DEA /* TableViewControllerContacts.swift in Sources */,
@@ -511,8 +515,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5M2254BM37;
 				INFOPLIST_FILE = "Salud Integral/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alexelizondo.Salud-Integral";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.itesmalumnos.Salud-Integral";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -527,8 +532,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5M2254BM37;
 				INFOPLIST_FILE = "Salud Integral/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alexelizondo.Salud-Integral";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.itesmalumnos.Salud-Integral";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
