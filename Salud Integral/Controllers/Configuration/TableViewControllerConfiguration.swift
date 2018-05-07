@@ -70,8 +70,8 @@ class TableViewControllerConfiguration: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row == 0 {
-            tableView.deselectRow(at: indexPath, animated: true)
            performSegue(withIdentifier: "segueSectionNames", sender: self)
         } else {
             performSegue(withIdentifier: "creditsSegue", sender: self)
