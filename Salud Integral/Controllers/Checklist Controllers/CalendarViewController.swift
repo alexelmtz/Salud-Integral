@@ -37,6 +37,13 @@ class CalendarViewController: UIViewController, JBDatePickerViewDelegate {
         lbDate.text = monthView.monthDescription
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

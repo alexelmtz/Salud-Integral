@@ -38,6 +38,13 @@ class CollectionViewController: UICollectionViewController {
 
         collectionView?.reloadData()
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
 
     func layoutSettings() {
         let navBarHeight = navigationController!.navigationBar.frame.size.height

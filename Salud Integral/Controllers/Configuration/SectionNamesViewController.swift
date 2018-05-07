@@ -40,6 +40,13 @@ class SectionNamesViewController: UIViewController {
         view.endEditing(true)
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     @IBAction func savePressed(_ sender: UIButton) {
         do {
             try realm.write {

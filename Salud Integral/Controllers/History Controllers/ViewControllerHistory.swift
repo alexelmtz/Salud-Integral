@@ -47,6 +47,13 @@ class ViewControllerHistory: UIViewController, UIPickerViewDelegate, UIPickerVie
         updateNavBar()
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     //MARK - Nav Bar Setup Methods
     
     func updateNavBar() {

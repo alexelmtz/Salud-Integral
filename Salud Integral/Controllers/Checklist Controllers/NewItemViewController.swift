@@ -53,6 +53,13 @@ class NewItemViewController: UIViewController {
         performSegue(withIdentifier: "calendarSegue", sender: self)
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     // MARK - Notification
     
     func notificationConfiguration(item: Item) {
